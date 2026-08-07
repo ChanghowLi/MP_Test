@@ -1,0 +1,1 @@
+Renesas ra8 MicroPython 移植的测试脚本，对应 ports [ChanghowLi/micropython at ra-dev](https://github.com/ChanghowLi/micropython/tree/ra-dev) 
