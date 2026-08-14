@@ -3,3 +3,7 @@
 
 # python
 .pyc
+
+# AI agent
+AGENTS.md
+CLAUDE.md
