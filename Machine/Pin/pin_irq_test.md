@@ -99,7 +99,7 @@ pin_irq_test.main()
 
 该时间包含硬件IRQ、MicroPython调度等待和Python回调执行时间，不代表纯硬件中断的最短延迟。
 
-![软IRQ响应延迟约685.6微秒](../images/pin_irq_soft_latency_685us.png)
+![软IRQ响应延迟约685.6微秒](./pin_irq_test.assets/pin_irq_soft_latency_685us.png)
 
 ## 当前结论
 

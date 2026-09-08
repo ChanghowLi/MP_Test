@@ -35,7 +35,7 @@ machine.soft_reset()
 - 测试：调用 `Pin("P006", Pin.OUT, value=0)`，使用 `on()`和`off()`输出10组高、低各100 ms的脉冲。
 - 结果：逻辑分析仪测得高、低电平各约100 ms，周期约200 ms，频率约5 Hz，占空比约50%，结果：PASS。
 
-![P006的5Hz GPIO输出波形](../images/pin_p006_5hz_output_waveform.png)
+![P006的5Hz GPIO输出波形](./pin_test.assets/pin_p006_5hz_output_waveform.png)
 
 ### Pin()输入模式
 

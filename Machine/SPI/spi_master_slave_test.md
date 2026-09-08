@@ -84,7 +84,7 @@ Mode 0 通信测试结果：PASS。
 
 重新配置测试结果：PASS。
 
-![SPI.init 重新配置测试](images/SPI1_Init_Reconfiguration_Test_PASS.png)
+![SPI.init 重新配置测试](./spi_master_slave_test.assets/SPI1_Init_Reconfiguration_Test_PASS.png)
 
 ### `SPI.deinit()`
 
@@ -96,31 +96,31 @@ Mode 0 通信测试结果：PASS。
 
 主从机通信测试结果：PASS。
 
-![SPI.read 主从机测试](images/SPI1_Read_Master_Slave_Test_PASS.png)
+![SPI.read 主从机测试](./spi_master_slave_test.assets/SPI1_Read_Master_Slave_Test_PASS.png)
 
 ### `SPI.readinto()`
 
 主从机通信测试结果：PASS。
 
-![SPI.readinto 主从机测试](images/SPI1_Readinto_Master_Slave_Test_PASS.png)
+![SPI.readinto 主从机测试](./spi_master_slave_test.assets/SPI1_Readinto_Master_Slave_Test_PASS.png)
 
 ### `SPI.write()`
 
 主从机通信测试结果：PASS。
 
-![SPI.write 主从机测试](images/SPI1_Write_Master_Slave_Test_PASS.png)
+![SPI.write 主从机测试](./spi_master_slave_test.assets/SPI1_Write_Master_Slave_Test_PASS.png)
 
 ### `SPI.write_readinto()`
 
 主从机通信测试结果：PASS。
 
-![SPI.write_readinto 主从机测试](images/SPI1_Write_Readinto_Master_Slave_Test_PASS.png)
+![SPI.write_readinto 主从机测试](./spi_master_slave_test.assets/SPI1_Write_Readinto_Master_Slave_Test_PASS.png)
 
 ### SPI1 主从机重复通信测试
 
 连续测试 10 次，结果：PASS=10，FAIL=0。
 
-![SPI1 主从机连续 10 次通信测试](images/SPI1_Master_Slave_Stress_Test_10_Loops_PASS.png)
+![SPI1 主从机连续 10 次通信测试](./spi_master_slave_test.assets/SPI1_Master_Slave_Stress_Test_10_Loops_PASS.png)
 
 ### SPI1 主从机稳定速率测试
 
@@ -215,7 +215,7 @@ SPI1 本地硬件回环最大速度测试结果：
 
 测试结果：PASS。
 
-![SPI1 Mode 0 手动测试](images/SPI1_Mode0_10-Byte_Manual_Tes.png)
+![SPI1 Mode 0 手动测试](./spi_master_slave_test.assets/SPI1_Mode0_10-Byte_Manual_Tes.png)
 
 ### SPI1 Mode 1 主从机通信
 
@@ -233,7 +233,7 @@ SPI1 本地硬件回环最大速度测试结果：
 
 测试结果：PASS。
 
-![SPI1 Mode 3 主从机通信测试](images/SPI1_MODE3.png)
+![SPI1 Mode 3 主从机通信测试](./spi_master_slave_test.assets/SPI1_MODE3.png)
 
 ### SPI1 LSB First 主从机通信
 
