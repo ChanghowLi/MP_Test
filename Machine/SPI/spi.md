@@ -140,7 +140,7 @@ bytes(buf) == expected
 - 2 MHz 时测得 SCK 周期为 500 ns、频率为 2 MHz、占空比为 50%。
 - 2 MHz 在 20 MHz 采样率下的协议解析曾出现异常交错数据；将逻辑分析仪采样率提高至 250 MHz，并按 Mode 0、MSB、8 bits 配置协议解析后，16 字节传输能够正确解析为 `00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f`。
 
-![SPI(3) 2 MHz 回环与自动 CS 协议解析结果](../images/spi3_2mhz_loopback_decode.png)
+![SPI(3) 2 MHz 回环与自动 CS 协议解析结果](./spi.assets/spi3_2mhz_loopback_decode.png)
 
 图：`SPI(3)` 在 2 MHz、Mode 0、MSB、8 bits、250 MHz 逻辑分析仪采样率下完成 16 字节回环传输；`P006` 自动 CS 为低电平有效，协议解析结果为 `00` 至 `0f`。
 

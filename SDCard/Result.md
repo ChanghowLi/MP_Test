@@ -1,5 +1,7 @@
 # base_wr.py
 
+此脚本测试 SDCard 的基本读写功能
+
 ## 硬件连接
 
 - 一张 SD Card
