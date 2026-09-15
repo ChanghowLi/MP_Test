@@ -21,33 +21,26 @@ def input_pin_name(prompt):
 
 
 def output_test():
-    name = input_pin_name("请输入确认可安全输出的引脚名（例如 P006）: ")
-    print("下一步：将逻辑分析仪接到 {} 并共地，然后按回车输出10个慢速脉冲。".format(name))
+    name = input_pin_name("输入要测试的引脚名（例如 P006）: ")
+    print("将输出 10 个慢速脉冲，按回车确定")
     input()
-    pin = None
-    try:
-        pin = Pin(name, Pin.OUT, value=0)
-        print("调用: Pin({!r}, Pin.OUT, value=0)".format(name))
-        for _ in range(10):
-            pin.on()
-            time.sleep_ms(100)
-            pin.off()
-            time.sleep_ms(100)
-        print_result("GPIO输出脉冲", True, "应观察到10个高、低各100 ms的脉冲")
-    except Exception as exc:
-        print_result("GPIO输出脉冲", False, "{}: {}".format(type(exc).__name__, exc))
-    finally:
-        if pin is not None:
-            pin.init(Pin.IN, pull=None)
+    pin = Pin(name, Pin.OUT, value=0)
+    print("调用: Pin({!r}, Pin.OUT, value=0)".format(name))
+    for _ in range(10):
+        pin.on()
+        time.sleep_ms(10)
+        pin.off()
+        time.sleep_ms(10)
+    del pin
 
 
 def input_loopback_test():
-    output_name = input_pin_name("请输入确认可安全输出的引脚名: ")
-    input_name = input_pin_name("请输入确认可安全输入的引脚名: ")
+    output_name = input_pin_name("输入作为输出的引脚: ")
+    input_name = input_pin_name("输入作为输入的引脚: ")
     if output_name == input_name:
         print("[FAIL] 输出与输入必须是两个不同引脚。")
         return
-    print("下一步：用杜邦线连接 {}(输出) 与 {}(输入)，连接后按回车。".format(output_name, input_name))
+    print("用杜邦线连接 {}(输出) 与 {}(输入)，按回车继续。".format(output_name, input_name))
     input()
     output = None
     try:
@@ -59,20 +52,18 @@ def input_loopback_test():
             output.value(expected)
             time.sleep_ms(10)
             actual = target.value()
-            passed += print_result("第{}次输入读取".format(index + 1), actual == expected,
-                                   "期望={} 实际={}".format(expected, actual))
+            passed += print_result("第{}次输入读取".format(index + 1), actual == expected, "期望={} 实际={}".format(expected, actual))
         print("输入回接测试完成：{}/{} 项通过。".format(passed, len(pattern)))
     except Exception as exc:
         print_result("GPIO输入回接", False, "{}: {}".format(type(exc).__name__, exc))
     finally:
         if output is not None:
             output.init(Pin.IN, pull=None)
+            del output
 
 
 def helper_test():
-    name = input_pin_name("请输入确认可安全输出的引脚名: ")
-    print("下一步：可将逻辑分析仪接到 {}；按回车后测试 value/call/on/off/high/low/toggle。".format(name))
-    input()
+    name = input_pin_name("输入要测试的引脚: ")
     pin = None
     try:
         pin = Pin(name, Pin.OUT, value=0)
@@ -98,9 +89,7 @@ def helper_test():
 
 
 def configuration_test():
-    name = input_pin_name("请输入确认可安全配置的引脚名: ")
-    print("下一步：断开该引脚上的外部驱动，随后按回车测试 init/mode/pull/drive。")
-    input()
+    name = input_pin_name("输入要测试的引脚: ")
     try:
         pin = Pin(name, Pin.IN, pull=Pin.PULL_UP)
         passed = 0
@@ -118,7 +107,7 @@ def configuration_test():
 
 
 def namespace_test():
-    name = input_pin_name("请输入要检查的CPU引脚名: ")
+    name = input_pin_name("输入要检查的 CPU 引脚名: ")
     try:
         direct = Pin(name)
         cpu = getattr(Pin.cpu, name)
@@ -130,9 +119,7 @@ def namespace_test():
 
 
 def invalid_test():
-    pin_name = input_pin_name("请输入确认可安全配置且已断开外部信号的引脚名: ")
-    print("下一步：确认 {} 未连接外部设备，然后按回车测试非法参数。".format(pin_name))
-    input()
+    pin_name = input_pin_name("输入要测试的引脚: ")
     cases = (
         ("不存在的引脚", lambda: Pin("P999")),
         ("错误的引脚类型", lambda: Pin(None)),

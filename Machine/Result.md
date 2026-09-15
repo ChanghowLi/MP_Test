@@ -1,4 +1,38 @@
+# machine_test.py
+
+此脚本对 machine 模块下的 API 进行综合测试。涉及的非标准 API：
+
+- `machine.disable_irq()` 
+- `machine.enable_irq()` 
+
+- `machine.freq()` 
+- `machine.mem8` 
+- `machine.mem16` 
+- `machine.mem32` 
+- `machine.rng()` 
+- `machine.unique_id()` 
+
+## 硬件连接
+
+无
+
+## 运行结果
+
+![](./Result.assets/Snipaste_2026-09-10_16-43-19.png)
+
+![](./Result.assets/Snipaste_2026-09-10_16-43-45.png)
+
+![](./Result.assets/Snipaste_2026-09-10_16-44-15.png)
+
+![](./Result.assets/Snipaste_2026-09-10_16-44-42.png)
+
 # mem_access.py
+
+注意此脚本只能直接在 REPL 执行。此脚本对 Python 层提供的直接内存访问功能进行测试，包括对指定内存区域的读写。涉及非标准 API：
+
+- `machine.mem8` 
+- `machine.mem16` 
+- `machine.mem32` 
 
 ## 硬件连接
 
@@ -14,6 +48,10 @@
 - 暂时不包含 SDRAM、HyperRAM
 
 # reset.py
+
+注意此脚本只能直接在 REPL 执行。此脚本测试 Python 获取复位原因的 API。涉及的非标准 API：
+
+- `machine.reset_cause()` 
 
 ## 硬件连接
 

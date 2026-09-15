@@ -1,5 +1,3 @@
-"""Interactive machine.Pin IRQ tests for the CPKCOR_RA8P1 board."""
-
 import time
 import machine
 from machine import Pin
@@ -25,12 +23,12 @@ def input_pin_name(prompt):
 
 
 def prepare_loopback():
-    output_name = input_pin_name("请输入用于产生边沿的安全输出引脚: ")
-    irq_name = input_pin_name("请输入支持IRQ的安全输入引脚: ")
+    output_name = input_pin_name("输入用于产生边沿的输出引脚: ")
+    irq_name = input_pin_name("输入支持 IRQ 的输入引脚: ")
     if output_name == irq_name:
         print("[FAIL] 输出与IRQ输入必须是两个不同引脚。")
         return None, None, None, None
-    print("下一步：用杜邦线连接 {}(输出) 与 {}(IRQ输入)，连接后按回车。".format(output_name, irq_name))
+    print("用杜邦线连接 {}(输出) 与 {}(IRQ输入)，连接后按回车。".format(output_name, irq_name))
     input()
     target = Pin(irq_name)
     output = Pin(output_name, Pin.OUT, value=0)
@@ -54,7 +52,7 @@ def wait_for_callback(count, expected, timeout_ms=100):
 
 
 def edge_test():
-    print("\n1. 上升沿  2. 下降沿  3. 双边沿")
+    print("\n1. 上升沿\n2. 下降沿\n3. 双边沿")
     choice = input("下一步请输入边沿类型: ").strip()
     options = {
         "1": (Pin.IRQ_RISING, "上升沿", 5),
