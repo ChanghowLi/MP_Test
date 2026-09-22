@@ -46,23 +46,14 @@ def run_test(i2c, name, sequential):
     return True
 
 
-def main():
-    print("AT24C02 I2C test start")
-    print("I2C(%d), freq=%d, EEPROM=0x%02X" % (I2C_ID, I2C_FREQ, EEPROM_ADDR))
+print("AT24C02 I2C test start")
+print("I2C(%d), freq=%d, EEPROM=0x%02X" % (I2C_ID, I2C_FREQ, EEPROM_ADDR))
 
-    i2c = I2C(I2C_ID, freq=I2C_FREQ)
+i2c = I2C(I2C_ID, freq=I2C_FREQ)
 
-    try:
-        if not run_test(i2c, "Test 1: full chip 0xFF", False):
-            return False
-
-        if not run_test(i2c, "Test 2: full chip 0x00..0xFF", True):
-            return False
-
-        print("\nAT24C02 I2C test: PASS")
-        return True
-    finally:
-        i2c.deinit()
-
-
-main()
+try:
+    if run_test(i2c, "Test 1: full chip 0xFF", False):
+        if run_test(i2c, "Test 2: full chip 0x00..0xFF", True):
+            print("\nAT24C02 I2C test: PASS")
+finally:
+    i2c.deinit()
